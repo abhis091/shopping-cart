@@ -1,8 +1,35 @@
 h1{
     text-align: center;
-    background: cornsilk;
+    background: rgb(255, 220, 229);
     padding: 1%;
     margin-left: 0.6%;
     margin-right: 0.6%;
     margin-top: 0.6%;
 }
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin-left:40%;
+    margin-top: 15%;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid darksalmon;
+    border-color: greenyellow transparent khaki transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

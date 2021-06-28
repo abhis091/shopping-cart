@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   loginUrl:"https://fakestoreapi.com/auth/login",
-  usersUrl:"https://fakestoreapi.com/users"
+  usersUrl:"https://fakestoreapi.com/users",
+  productsUrl: "https://fakestoreapi.com/products/category/"
 };
 
 /*
