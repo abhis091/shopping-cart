@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url("https://www.zaunergroup.com/static/e15df3ed253535fa45c2cf9f02a4ae63/276ce/Hero_Einkauf_2880x1080px-min-scaled.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    opacity: 5;
+    z-index: 1;
+}
+
+

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,10 +6,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!isLoggedIn()">
             <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!isLoggedIn()">
             <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
           </li>
           <li class="nav-item dropdown">
@@ -17,10 +17,10 @@
               Categories
             </a>
             <ul class="dropdown-menu" aria-labelledby="categories">
-                <li><a class="dropdown-item" [routerLink]="['/']" routerLinkActive="router-link-active" >1</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/']" routerLinkActive="router-link-active" >2</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/']" routerLinkActive="router-link-active" >3</a></li>
-                <li><a class="dropdown-item" [routerLink]="['/']" routerLinkActive="router-link-active" >4</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/womens']" routerLinkActive="router-link-active" >Women's Clothing</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/mens']" routerLinkActive="router-link-active" >Men's Clothing</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/jewelery']" routerLinkActive="router-link-active" >Jewelery</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/electronics']" routerLinkActive="router-link-active" >Electronics</a></li>
             </ul>
           </li>
 
@@ -42,9 +42,9 @@
                   <a class="nav-link" [routerLink]="['/order']" routerLinkActive="router-link-active" >View Order</a>
               </li>
         </ul>
-        <div class="nav-item white">
-          <a class="nav-link fas fa-bars" id="userOptions" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-            User
+        <div class="nav-item" *ngIf="isLoggedIn()">
+          <a class="fas fa-bars" id="userOptions" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+            {{username}}
           </a>
           <ul class="dropdown-menu" aria-labelledby="userOptions">
               <li><a class="dropdown-item" [routerLink]="['/cart']" routerLinkActive="router-link-active" >My Cart</a></li>

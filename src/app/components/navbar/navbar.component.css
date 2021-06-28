@@ -3,6 +3,15 @@
     margin:0.5%;
     border-radius: 0.5%;
 }
-.nav-link{
+.navbar-brand, .nav-link, .fas{
     color: white;
+}
+
+.navbar-brand, .nav-link:hover{
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.fas{
+    text-decoration: none;
 }
