@@ -4,7 +4,13 @@ import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { OrderComponent } from './components/order/order.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ElectronicsComponent } from './modules/lazy-components/electronics/electronics.component';
+import { JeweleryComponent } from './modules/lazy-components/jewelery/jewelery.component';
+import { MensClothingComponent } from './modules/lazy-components/mens-clothing/mens-clothing.component';
+import { PaymentComponent } from './modules/lazy-components/payment/payment.component';
+import { WomensClothingComponent } from './modules/lazy-components/womens-clothing/womens-clothing.component';
 
 const routes: Routes = [
   {
@@ -39,6 +45,16 @@ const routes: Routes = [
   {
     path:'products/jewelery',
     loadChildren: ()=> import('src/app/modules/jewelery/jewelery.module').then(m => m.JeweleryModule)
+  },
+  {
+    path:'order',
+    component:OrderComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'payment',
+    loadChildren:()=>import('src/app/modules/payment/payment.module').then(m => m.PaymentModule),
+    canActivate:[AuthGuard]
   }
 ];
 
@@ -51,5 +67,11 @@ export const routingComponents = [
   NavbarComponent,
   HomeComponent,
   LoginComponent,
-  RegisterComponent
+  RegisterComponent,
+  OrderComponent,
+  ElectronicsComponent,
+  WomensClothingComponent,
+  MensClothingComponent,
+  JeweleryComponent,
+  PaymentComponent
 ]

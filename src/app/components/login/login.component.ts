@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/classFiles/loginUser';
-import { User } from 'src/app/classFiles/user';
 import { GetUserService } from 'src/app/services/get-user/get-user.service';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -22,28 +21,30 @@ export class LoginComponent implements OnInit {
     private _router:Router
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onLoginClicked(){
     this._lService.login(this.userCreds)
         .subscribe(data => {
             this.token = data.token;
             if(this.token){
-              this._guService.loggedIn = true;
-              this._guService.getUserDetails(this.userCreds)
-                  .subscribe(userData => {
-                    userData.forEach(user =>{
-                      if(user.username == this.userCreds.username){
-                        localStorage.setItem("userDetails",JSON.stringify(user));
-                        this._router.navigate(['/home']);
-                      }
-                    });
-                  });
+              this.getUserData();
               return;
             }
       this.success = false;
     });
+  }
+
+  getUserData(){
+    this._guService.getUserDetails(this.userCreds)
+        .subscribe(userData => {
+          userData.forEach(user =>{
+            if(user.username == this.userCreds.username){
+              localStorage.setItem("userDetails",JSON.stringify(user));
+              this._router.navigate(['/home']);
+            }
+          });
+        });
   }
 
 }

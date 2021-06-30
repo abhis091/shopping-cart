@@ -9,6 +9,9 @@
                     {{item.description}}
                 </p>
                 <h4 class="card-footer">PRICE: ${{item.price}}</h4>
+                <div class="text-center">
+                    <button class="btn btn-success" (click)="addItem(item)" *ngIf="!isAdmin() && isLoggedIn()">Add to Cart</button>
+                </div>
             </div>
         </div>
     </div> 

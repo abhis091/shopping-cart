@@ -9,8 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 export class GetUserService {
 
-  loggedIn = false;
-
   constructor(private _http:HttpClient) { }
 
   getUserDetails(_userCreds:LoginUser){

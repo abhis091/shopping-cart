@@ -14,4 +14,24 @@ export class LoginService {
   login(_userCreds:LoginUser){    
     return this._http.post<any>(environment.loginUrl,_userCreds);
   }
+
+  isAdmin(){
+    if(this.getUser()?.username == 'johnd'){
+      return true;
+    }
+    return false;
+  }
+
+  isLoggedIn():User|undefined{
+    return this.getUser();
+  }
+
+  getUser(){
+    let user = localStorage.getItem('userDetails');
+      if(user){    
+        let userData:User = JSON.parse(user);
+        return userData;
+      }
+      return undefined;
+  }
 }

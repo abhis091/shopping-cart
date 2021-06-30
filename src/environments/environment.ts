@@ -7,7 +7,9 @@ export const environment = {
 
   loginUrl:"https://fakestoreapi.com/auth/login",
   usersUrl:"https://fakestoreapi.com/users",
-  productsUrl: "https://fakestoreapi.com/products/category/"
+  allProductsUrl:"https://fakestoreapi.com/products",
+  productsUrl: "https://fakestoreapi.com/products/category/",
+  categoriesUrl:"https://fakestoreapi.com/products/categories/"
 };
 
 /*

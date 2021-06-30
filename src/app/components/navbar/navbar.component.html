@@ -26,20 +26,17 @@
 
           <!-- two Links for admin -->
 
-          <li class="nav-item adminLinks">
+          <li class="nav-item adminLinks" *ngIf="isAdmin() && isLoggedIn()">
               <a class="nav-link" [routerLink]="['/addItem']" routerLinkActive="router-link-active" >Add Item</a>
             </li>
-            <li class="nav-item adminLinks">
+            <li class="nav-item adminLinks" *ngIf="isAdmin() && isLoggedIn()">
                 <a class="nav-link" [routerLink]="['/stock']" routerLinkActive="router-link-active" >View Stock</a>
             </li>
 
 
-            <!-- two links for customer user -->
-            <li class="nav-item customerLinks">
-                <a class="nav-link" [routerLink]="['/buy']" routerLinkActive="router-link-active" >Buy Product</a>
-              </li>
-              <li class="nav-item customerLinks">
-                  <a class="nav-link" [routerLink]="['/order']" routerLinkActive="router-link-active" >View Order</a>
+            <!-- link for customer user -->
+              <li class="nav-item customerLinks" *ngIf="!isAdmin() && isLoggedIn()">
+                  <a class="nav-link" [routerLink]="['/order']" routerLinkActive="router-link-active" >My Cart</a>
               </li>
         </ul>
         <div class="nav-item" *ngIf="isLoggedIn()">
@@ -47,7 +44,8 @@
             {{username}}
           </a>
           <ul class="dropdown-menu" aria-labelledby="userOptions">
-              <li><a class="dropdown-item" [routerLink]="['/cart']" routerLinkActive="router-link-active" >My Cart</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" (click)="logout()">Log Out</a></li>
           </ul>
         </div>

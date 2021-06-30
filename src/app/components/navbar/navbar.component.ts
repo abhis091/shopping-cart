@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/classFiles/user';
 import { GetUserService } from 'src/app/services/get-user/get-user.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,23 +11,24 @@ import { GetUserService } from 'src/app/services/get-user/get-user.service';
 export class NavbarComponent implements OnInit {
 
   username= '';
+  _i:number =0;
 
-  constructor(private _guService:GetUserService) { }
+  constructor(private _lService:LoginService) { }
 
   ngOnInit(): void {}
 
   logout(){
     localStorage.removeItem('userDetails');
-    this._guService.loggedIn = false;
+  }
+
+  isAdmin(){
+    return this._lService.isAdmin();
   }
 
   isLoggedIn(){
-    if(this._guService.loggedIn){
-      let user = localStorage.getItem('userDetails');
-      if(user){
-        let userData:User = JSON.parse(user);
-        this.username = userData.name.firstname +" "+ userData.name.lastname; 
-      }
+    let userData=this._lService.isLoggedIn();
+    if(userData){
+      this.username = userData.name.firstname +" "+ userData.name.lastname; 
       return true;
     }
     return false;
