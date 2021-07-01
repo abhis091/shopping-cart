@@ -16,6 +16,14 @@ export class GetOrderService {
 
   addItemToCart(item:Item){
     item.total = item.price * item.qty;
+    let cart = JSON.parse(localStorage.getItem('cart')!);
+  
+    cart.forEach((i:Item) => {
+      if(i.id ==  item.id){
+        item.qty = i.qty + 1;
+      }
+    });
+    
     this.itemList.set(item.id,item);
     localStorage.setItem('cart',JSON.stringify([...this.itemList.values()]));
   }

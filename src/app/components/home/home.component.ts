@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     let tempList:any = [];
     this.list.forEach((item:Item) => {
       if(item.title.includes(this.itemName)){
-        alert(this.itemName);
+        // alert(this.itemName);
         tempList.push(item);
       }
     });
@@ -54,11 +54,6 @@ export class HomeComponent implements OnInit {
   }
 
   addItem(item:Item){
-    if(item.qty>0){
-      item.qty +=1;
-    }else{
-      item.qty = 1;
-    }
     this._orderService.addItemToCart(item);
     alert("Item added to Cart");
   }

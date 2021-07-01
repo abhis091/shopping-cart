@@ -42,11 +42,6 @@ export class WomensClothingComponent implements OnInit {
 
   
   addItem(item:Item){
-    if(item.qty>0){
-      item.qty +=1;
-    }else{
-      item.qty = 1;
-    }
     this._orderService.addItemToCart(item);
     alert("Item added to Cart");
   }
