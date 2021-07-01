@@ -18,11 +18,17 @@
                 </div>
                 <div class="col-sm-6 right">
                     <h5 class="mb-3">To:</h5>
-                    <h3 class="text-dark mb-1">AS</h3>
-                    <div>478, Nai Sadak</div>
-                    <div>Chandni chowk, New delhi, 110006</div>
-                    <div>Email: info@tikon.com</div>
-                    <div>Phone: +91 9895 398 009</div>
+                    <h3 class="text-dark mb-1">{{userDetails.name.firstname}} {{userDetails.name.lastname}}</h3>
+                    <div>
+                        {{userDetails.address.number}},
+                        {{userDetails.address.street}},
+                    </div>
+                    <div>
+                        {{userDetails.address.city}} -
+                        {{userDetails.address.zipcode}}
+                    </div>
+                    <div>Email: {{userDetails.email}}</div>
+                    <div>Phone: +{{userDetails.phone}}</div>
                 </div>
             </div>
             <div class="table-responsive-sm">

@@ -53,8 +53,13 @@ const routes: Routes = [
   },
   {
     path:'payment',
-    loadChildren:()=>import('src/app/modules/payment/payment.module').then(m => m.PaymentModule),
+    loadChildren:() => import('src/app/modules/payment/payment.module').then(m => m.PaymentModule),
     canActivate:[AuthGuard]
+  },
+  {
+    path:'profile',
+    loadChildren:() => import("src/app/modules/profile/profile.module").then(m => m.ProfileModule),
+    canActivate: [AuthGuard]
   }
 ];
 

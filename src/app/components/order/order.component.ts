@@ -16,6 +16,8 @@ export class OrderComponent implements OnInit {
   discount:number=0;
   gst:number=0;
   grandTotal:number=0;
+  userDetails:any;
+
 
   constructor(
     private _orderService:GetOrderService,
@@ -24,6 +26,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.list = this._orderService.getCart();
+    this.userDetails = JSON.parse(localStorage.getItem('userDetails')!);
     
     if(this.list){
       this.list.forEach((item:Item) => {

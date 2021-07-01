@@ -28,8 +28,9 @@
 
                     <div style="margin-top:10px" class="form-group">
                         <!-- Button -->
-                        <div class="col-sm-12 controls">
-                            <button [disabled]="loginform.invalid" id="btn-login" (click)="onLoginClicked()" class="btn btn-success">Login </button>
+                        <div class="col-sm-12 controls row">
+                            <button [disabled]="loginform.invalid" id="btn-login" (click)="onLoginClicked()" class="btn btn-success col-md-2">Login </button>
+                            <div class="loader" *ngIf="showLoader"></div>
                         </div>
                     </div>
 

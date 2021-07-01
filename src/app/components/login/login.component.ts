@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   userCreds= new LoginUser('','');
   success = true;
+  showLoader:boolean =false;
   token = null;
 
   constructor(
@@ -24,11 +25,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onLoginClicked(){
+    this.showLoader = true;
     this._lService.login(this.userCreds)
         .subscribe(data => {
             this.token = data.token;
             if(this.token){
               this.getUserData();
+              this.showLoader = false;
               return;
             }
       this.success = false;

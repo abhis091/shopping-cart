@@ -6,11 +6,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppHttpInterceptor } from './AppHttpInterceptor';
+import { ProfileComponent } from './modules/lazy-components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
