@@ -36,7 +36,6 @@ export class OrderComponent implements OnInit {
       this.gst = this.totalAmount * 0.18;
       this.grandTotal = this.totalAmount - this.discount + this.gst;
       this._orderService.grandTotal = this.grandTotal;
-      console.log(this.list);
     }
   }
 
